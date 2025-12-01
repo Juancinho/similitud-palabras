@@ -7,7 +7,7 @@
 
 Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional.
 
-[🚀 Demo en Vivo](#) | [📖 Documentación](#características) | [🐛 Reportar Bug](https://github.com/Juancinho/similitud-palabras/issues)
+[🚀 Demo en Vivo](https://juancinho-similitud-palabras-app-streamlit-io5gir.streamlit.app/) | [📖 Documentación](#características) | [🐛 Reportar Bug](https://github.com/Juancinho/similitud-palabras/issues)
 
 </div>
 
