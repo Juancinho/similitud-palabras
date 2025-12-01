@@ -2,8 +2,11 @@
 
 <div align="center"
 
-![Python](C:\Users\tj14o\Desktop\scripts%20histor5ia\img\1.png)
-![Streamlit](C:\Users\tj14o\Desktop\scripts%20histor5ia\img\2.png)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
 Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional.
 
@@ -96,6 +99,9 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 ---
 
 ## 🚀 Uso
+
+![Uso1](https://github.com/Juancinho/similitud-palabras/blob/main/img/1.png)
+![Uso2](https://github.com/Juancinho/similitud-palabras/blob/main/img/2.png)
 
 ### Uso Básico
 
