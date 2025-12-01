@@ -214,12 +214,46 @@ similitud = (A · B) / (||A|| × ||B||)
 #### 3. PCA (Análisis de Componentes Principales)
 
 ```python
-# Pasos de reducción:
-1. Normalización L2    → Vectores unitarios
-2. Estandarización    → Media=0, Std=1
-3. PCA                → Encuentra 3 direcciones de máxima varianza
-4. Proyección         → Mapea datos a espacio 3D
+# Implementación conceptual del pipeline
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import numpy as np
+
+# 1. Normalizar vectores (L2) - Enfocarse en dirección, no magnitud
+vectors_norm = vectors / np.linalg.norm(vectors, axis=1, keepdims=True)
+
+# 2. Centrar y Escalar (StandardScaler) - Media=0, Varianza=1
+scaler = StandardScaler()
+vectors_scaled = scaler.fit_transform(vectors_norm)
+
+# 3. Aplicar PCA - Proyección a 3D
+pca = PCA(n_components=3)
+vectors_3d = pca.fit_transform(vectors_scaled)
 ```
+
+El uso de **PCA** (Principal Component Analysis) es fundamental para visualizar espacios de alta dimensión. A continuación se detalla el proceso matemático aplicado en esta herramienta:
+
+**1. El Problema de la Dimensionalidad**
+Los vectores de GloVe existen en $\mathbb{R}^{50}$. Visualizar 50 ejes ortogonales es imposible para la percepción humana. Necesitamos proyectar estos datos a $\mathbb{R}^{3}$ minimizando la pérdida de información estructural.
+
+**2. Preprocesamiento Crítico**
+
+* **Normalización L2 (Euclídea):**
+  
+  * **¿Por qué?**: En word embeddings, la magnitud del vector a menudo correlaciona con la frecuencia de la palabra en el corpus de entrenamiento, mientras que la información semántica reside principalmente en la *dirección* del vector. Sin normalizar, palabras con magnitudes grandes dominarían la varianza explicada por el PCA, distorsionando la visualización de similitudes semánticas.
+  * **¿Cómo?**: Dividimos cada vector $v$ por su norma euclídea: $v_{norm} = \frac{v}{||v||_2}$. Esto proyecta todos los puntos sobre la superficie de una hiperesfera unitaria.
+
+* **Centrado de Datos (Estandarización):**
+  
+  * **¿Por qué?**: PCA es una técnica basada en la varianza que rota los ejes. Para que esta rotación encuentre las direcciones de máxima varianza correctamente alrededor del conjunto de datos actual (el subconjunto de palabras seleccionado), el origen del sistema de coordenadas debe coincidir con el centroide de los datos (media cero).
+  * **¿Cómo?**: Restamos la media $\mu$ de cada dimensión: $x_{centrado} = x - \mu$. Además, escalamos a varianza unitaria para que ninguna dimensión domine sobre otras artificialmente.
+
+**3. Reducción de Dimensionalidad**
+PCA busca una transformación ortogonal tal que los primeros ejes (Componentes Principales) retengan la mayor cantidad de "información" (varianza) posible.
+
+1. Se calcula la **Matriz de Covarianza** de los datos preprocesados.
+2. Se obtienen los **autovectores** (direcciones principales) y **autovalores** (magnitud de varianza) mediante descomposición (SVD o Eigendecomposition).
+3. Se proyectan los datos originales sobre los 3 autovectores con mayores autovalores.
 
 ---
 
@@ -253,38 +287,7 @@ Por lo tanto:
 king - man + woman ≈ queen
 ```
 
-Visualmente en 2D (simplificado):
-
-```
-     queen •
-            ↗
-           /
-     king •    woman •
-       ↘   ↗
-         ×
-       ↙   ↖
-    man •
-```
-
 El vector `king - man` es paralelo a `queen - woman`, representando el concepto de "realeza" independiente del género.
-
-### Reducción de Dimensionalidad
-
-**Problema:** No podemos visualizar 50 dimensiones
-**Solución:** PCA reduce a 3D preservando relaciones
-
-**Proceso:**
-
-1. **Normalización L2**: Todos los vectores a longitud 1
-2. **Estandarización**: Centra datos en origen
-3. **PCA**: Encuentra 3 ejes principales de varianza
-4. **Proyección**: Mapea puntos al nuevo espacio 3D
-
-**Trade-off:**
-
-- ✅ Podemos visualizar
-- ⚠️ Perdemos ~20-30% de información
-- ✅ Relaciones principales se preservan
 
 ---
 
@@ -359,12 +362,6 @@ Top 1:  paris (0.7123)
 
 - [ ] Añadir más modelos de embeddings (Word2Vec, FastText, BERT)
 - [ ] Implementar t-SNE como alternativa a PCA
-- [ ] Exportar visualizaciones como imagen/video
-- [ ] Modo oscuro/claro toggle
-- [ ] Soporte para múltiples idiomas
-- [ ] API REST para uso programático
-- [ ] Tests unitarios con pytest
-- [ ] Dockerfile para containerización
 
 ---
 
