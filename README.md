@@ -1,15 +1,13 @@
 # 🔤 Visualizador de Analogías de Palabras
 
-<div align="center">
+<div align="center"
 
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-FF4B4B?logo=streamlit&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
-![Status](https://img.shields.io/badge/Status-Active-success)
+![Python](C:\Users\tj14o\Desktop\scripts%20histor5ia\img\1.png)
+![Streamlit](C:\Users\tj14o\Desktop\scripts%20histor5ia\img\2.png)
 
 Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional.
 
-[🚀 Demo en Vivo](#) | [📖 Documentación](#características) | [🐛 Reportar Bug](https://github.com/tu-usuario/word-analogy-visualizer/issues)
+[🚀 Demo en Vivo](#) | [📖 Documentación](#características) | [🐛 Reportar Bug](https://github.com/Juancinho/similitud-palabras/issues)
 
 </div>
 
@@ -24,8 +22,6 @@ Una aplicación web interactiva para explorar y visualizar relaciones semántica
 - [Arquitectura Técnica](#arquitectura-técnica)
 - [Cómo Funciona](#cómo-funciona)
 - [Ejemplos](#ejemplos)
-- [Deployment](#deployment)
-- [Estructura del Proyecto](#estructura-del-proyecto)
 - [Contribuir](#contribuir)
 - [Licencia](#licencia)
 - [Autor](#autor)
@@ -53,37 +49,6 @@ Una aplicación web interactiva para explorar y visualizar relaciones semántica
 - **Optimización**: Procesamiento eficiente de 400K palabras en segundos
 - **Escalable**: Arquitectura modular fácil de extender
 
----
-
-## 🎬 Demo
-
-### Ejemplo: King - Man + Woman ≈ Queen
-
-```
-Entrada:
-  Palabra 1: king
-  Palabra 2: man
-  Palabra 3: woman
-  Palabra 4: queen
-
-Resultado:
-  Similitud coseno: 0.8234
-  Ranking: #1 en Top 10 ✓
-```
-
-### Capturas de Pantalla
-
-#### Interfaz Principal
-<img src="https://via.placeholder.com/800x400?text=Interfaz+Principal" alt="Interfaz principal">
-
-#### Visualización 3D
-<img src="https://via.placeholder.com/800x400?text=Visualizaci%C3%B3n+3D" alt="Visualización 3D">
-
-#### Análisis de Resultados
-<img src="https://via.placeholder.com/800x400?text=An%C3%A1lisis+de+Resultados" alt="Análisis">
-
----
-
 ## 📦 Instalación
 
 ### Requisitos Previos
@@ -97,7 +62,7 @@ Resultado:
 
 ```bash
 # 1. Clonar el repositorio
-git clone https://github.com/tu-usuario/word-analogy-visualizer.git
+git clone https://github.com/Juancinho/similitud-palabras.git
 cd word-analogy-visualizer
 
 # 2. Crear entorno virtual (opcional pero recomendado)
@@ -120,13 +85,13 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 
 ### Dependencias
 
-| Paquete | Versión | Propósito |
-|---------|---------|-----------|
-| `streamlit` | ≥1.28.0 | Framework web |
-| `gensim` | ≥4.3.0 | Word embeddings |
-| `numpy` | ≥1.24.0 | Operaciones numéricas |
-| `scikit-learn` | ≥1.3.0 | PCA y preprocessing |
-| `plotly` | ≥5.18.0 | Visualización 3D |
+| Paquete        | Versión | Propósito             |
+| -------------- | ------- | --------------------- |
+| `streamlit`    | ≥1.28.0 | Framework web         |
+| `gensim`       | ≥4.3.0  | Word embeddings       |
+| `numpy`        | ≥1.24.0 | Operaciones numéricas |
+| `scikit-learn` | ≥1.3.0  | PCA y preprocessing   |
+| `plotly`       | ≥5.18.0 | Visualización 3D      |
 
 ---
 
@@ -135,22 +100,27 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 ### Uso Básico
 
 1. **Abrir la aplicación**
+   
    ```bash
    streamlit run app_streamlit.py
    ```
 
 2. **Seleccionar ejemplo o ingresar palabras personalizadas**
+   
    - Usa el selector en la sidebar para ejemplos predefinidos
    - O ingresa 4 palabras manualmente
 
 3. **Ajustar configuración** (opcional)
+   
    - Palabras contextuales: 5-30 (recomendado: 20)
 
 4. **Generar visualización**
+   
    - Click en "🚀 Generar Visualización"
    - Espera 5-10 segundos la primera vez (carga del modelo)
 
 5. **Explorar resultados**
+   
    - Rota el gráfico 3D con el mouse
    - Revisa métricas de similitud
    - Analiza top 10 palabras similares
@@ -213,6 +183,7 @@ python main.py
 ### Algoritmos Clave
 
 #### 1. Aritmética Vectorial
+
 ```python
 # Fórmula de analogía
 derivada = palabra1 - palabra2 + palabra3
@@ -223,6 +194,7 @@ derivada = palabra1 - palabra2 + palabra3
 ```
 
 #### 2. Similitud Coseno
+
 ```python
 # Mide el ángulo entre dos vectores
 similitud = (A · B) / (||A|| × ||B||)
@@ -234,6 +206,7 @@ similitud = (A · B) / (||A|| × ||B||)
 ```
 
 #### 3. PCA (Análisis de Componentes Principales)
+
 ```python
 # Pasos de reducción:
 1. Normalización L2    → Vectores unitarios
@@ -249,11 +222,13 @@ similitud = (A · B) / (||A|| × ||B||)
 ### Word Embeddings (GloVe)
 
 Los **word embeddings** son representaciones vectoriales de palabras donde:
+
 - Cada palabra es un vector de 50 números
 - Palabras similares tienen vectores cercanos
 - Relaciones semánticas se preservan como direcciones vectoriales
 
 **Ejemplo:**
+
 ```
 king   = [0.23, -0.15, 0.67, ..., 0.34]  (50 valores)
 queen  = [0.25, -0.13, 0.68, ..., 0.36]  (50 valores)
@@ -273,6 +248,7 @@ king - man + woman ≈ queen
 ```
 
 Visualmente en 2D (simplificado):
+
 ```
      queen •
             ↗
@@ -292,12 +268,14 @@ El vector `king - man` es paralelo a `queen - woman`, representando el concepto 
 **Solución:** PCA reduce a 3D preservando relaciones
 
 **Proceso:**
+
 1. **Normalización L2**: Todos los vectores a longitud 1
 2. **Estandarización**: Centra datos en origen
 3. **PCA**: Encuentra 3 ejes principales de varianza
 4. **Proyección**: Mapea puntos al nuevo espacio 3D
 
 **Trade-off:**
+
 - ✅ Podemos visualizar
 - ⚠️ Perdemos ~20-30% de información
 - ✅ Relaciones principales se preservan
@@ -307,6 +285,7 @@ El vector `king - man` es paralelo a `queen - woman`, representando el concepto 
 ## 📚 Ejemplos
 
 ### 1. Género
+
 ```python
 Input:  king, man, woman, queen
 Output: Similitud = 0.8234 ⭐
@@ -314,6 +293,7 @@ Top 1:  queen (0.8234)
 ```
 
 ### 2. Geografía
+
 ```python
 Input:  paris, france, spain, madrid
 Output: Similitud = 0.7456 ⭐
@@ -321,6 +301,7 @@ Top 1:  madrid (0.7456)
 ```
 
 ### 3. Familia
+
 ```python
 Input:  uncle, man, woman, aunt
 Output: Similitud = 0.7892 ⭐
@@ -328,6 +309,7 @@ Top 1:  aunt (0.7892)
 ```
 
 ### 4. Verbos Conjugados
+
 ```python
 Input:  walking, walked, swimming, swam
 Output: Similitud = 0.6543 ✓
@@ -335,94 +317,12 @@ Top 3:  swam (0.6543)
 ```
 
 ### 5. Capital de País
+
 ```python
 Input:  tokyo, japan, france, paris
 Output: Similitud = 0.7123 ⭐
 Top 1:  paris (0.7123)
 ```
-
----
-
-## 🌐 Deployment
-
-### Streamlit Community Cloud (GRATIS)
-
-**Opción recomendada** - Hosting gratuito específico para Streamlit
-
-#### Pasos:
-
-1. **Subir código a GitHub**
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/tu-usuario/word-analogy-visualizer.git
-   git push -u origin main
-   ```
-
-2. **Desplegar en Streamlit Cloud**
-   - Ir a https://share.streamlit.io/
-   - Sign up con GitHub
-   - Click "New app"
-   - Seleccionar repositorio
-   - Main file: `app_streamlit.py`
-   - Click "Deploy"
-
-3. **Esperar 5-10 minutos** (descarga modelo GloVe)
-
-4. **Tu app estará en**: `https://tu-usuario-word-analogy-visualizer.streamlit.app`
-
-**Límites gratuitos:**
-- 1 GB RAM
-- 3 apps simultáneas
-- Actualizaciones automáticas con cada push
-
-### Alternativas
-
-#### Railway
-```bash
-railway login
-railway init
-railway up
-```
-
-#### Render
-1. Conectar repositorio GitHub
-2. Build: `pip install -r requirements.txt`
-3. Start: `streamlit run app_streamlit.py --server.port=$PORT`
-
-#### Heroku
-```bash
-heroku create
-git push heroku main
-```
-
----
-
-## 📁 Estructura del Proyecto
-
-```
-word-analogy-visualizer/
-├── app_streamlit.py          # Aplicación web principal
-├── main.py                   # Versión CLI
-├── requirements.txt          # Dependencias Python
-├── .streamlit/
-│   └── config.toml          # Configuración de Streamlit
-├── .gitignore               # Archivos a ignorar en Git
-├── README.md                # Este archivo
-├── DEPLOYMENT.md            # Guía detallada de deployment
-└── LICENSE                  # Licencia MIT
-```
-
-### Archivos Principales
-
-| Archivo | Descripción | Líneas |
-|---------|-------------|--------|
-| `app_streamlit.py` | Aplicación web completa con UI | ~550 |
-| `main.py` | Versión CLI (sin UI) | ~400 |
-| `requirements.txt` | Dependencias del proyecto | 4 |
-
----
 
 ## 🤝 Contribuir
 
@@ -430,14 +330,14 @@ word-analogy-visualizer/
 
 ### Reportar Bugs
 
-1. Abre un [Issue](https://github.com/tu-usuario/word-analogy-visualizer/issues)
+1. Abre un [Issue](https://github.com/Juancinho/similitud-palabras/issues)
 2. Describe el bug claramente
 3. Incluye pasos para reproducirlo
 4. Añade screenshots si es posible
 
 ### Proponer Features
 
-1. Abre un [Issue](https://github.com/tu-usuario/word-analogy-visualizer/issues) con etiqueta "enhancement"
+1. Abre un [Issue](https://github.com/Juancinho/similitud-palabras/issues) con etiqueta "enhancement"
 2. Describe la funcionalidad deseada
 3. Explica por qué sería útil
 
@@ -464,14 +364,14 @@ word-analogy-visualizer/
 
 ## 📊 Performance
 
-| Operación | Primera Vez | Subsecuentes |
-|-----------|-------------|--------------|
-| Carga de modelo | ~8 segundos | Instantáneo (caché) |
-| Obtener vectores | ~0.5 seg | ~0.5 seg |
-| PCA (5 palabras) | ~0.1 seg | ~0.1 seg |
-| PCA (25 palabras) | ~0.3 seg | ~0.3 seg |
-| Renderizado 3D | ~1 seg | ~1 seg |
-| **Total** | **~10 seg** | **~2 seg** |
+| Operación         | Primera Vez | Subsecuentes        |
+| ----------------- | ----------- | ------------------- |
+| Carga de modelo   | ~8 segundos | Instantáneo (caché) |
+| Obtener vectores  | ~0.5 seg    | ~0.5 seg            |
+| PCA (5 palabras)  | ~0.1 seg    | ~0.1 seg            |
+| PCA (25 palabras) | ~0.3 seg    | ~0.3 seg            |
+| Renderizado 3D    | ~1 seg      | ~1 seg              |
+| **Total**         | **~10 seg** | **~2 seg**          |
 
 ---
 
@@ -503,9 +403,8 @@ Permission is hereby granted, free of charge...
 
 **Juan Otero**
 
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- LinkedIn: [tu-perfil](https://linkedin.com/in/tu-perfil)
-- Email: tu@email.com
+- GitHub: [@Juancinho](https://github.com/Juancinho)
+- Linkedin: [Juan Otero Rivas](https://www.linkedin.com/in/juan-otero-rivas-4568471b2/)
 
 ---
 
@@ -523,15 +422,18 @@ Permission is hereby granted, free of charge...
 ### Papers
 
 1. Mikolov et al. (2013) - "Efficient Estimation of Word Representations in Vector Space"
+   
    - [Paper](https://arxiv.org/abs/1301.3781)
 
 2. Pennington et al. (2014) - "GloVe: Global Vectors for Word Representation"
+   
    - [Paper](https://nlp.stanford.edu/pubs/glove.pdf)
 
 3. Levy & Goldberg (2014) - "Linguistic Regularities in Sparse and Explicit Word Representations"
+   
    - [Paper](https://www.aclweb.org/anthology/W14-1618/)
 
-### Recursos
+###](https://jalammar.github.io/illustrated-word2vec/)
 
 - [GloVe Homepage](https://nlp.stanford.edu/projects/glove/)
 - [Gensim Documentation](https://radimrehurek.com/gensim/)
@@ -544,37 +446,4 @@ Permission is hereby granted, free of charge...
 
 Si este proyecto te fue útil, ¡deja una estrella! ⭐
 
-[![Star History Chart](https://api.star-history.com/svg?repos=tu-usuario/word-analogy-visualizer&type=Date)](https://star-history.com/#tu-usuario/word-analogy-visualizer&Date)
-
 ---
-
-## 📈 Roadmap
-
-### v1.0 (Actual)
-- [x] Visualización 3D básica
-- [x] Aritmética vectorial
-- [x] Ejemplos predefinidos
-- [x] Palabras contextuales
-- [x] Análisis de similitud
-
-### v1.1 (Próximamente)
-- [ ] Soporte para Word2Vec
-- [ ] Exportar visualizaciones
-- [ ] Tests unitarios
-- [ ] Modo oscuro
-
-### v2.0 (Futuro)
-- [ ] Soporte multi-idioma
-- [ ] API REST
-- [ ] Embeddings personalizados
-- [ ] Análisis de múltiples analogías
-
----
-
-<div align="center">
-
-**Hecho con ❤️ usando Python, Streamlit y GloVe**
-
-[⬆ Volver arriba](#-visualizador-de-analogías-de-palabras)
-
-</div>
