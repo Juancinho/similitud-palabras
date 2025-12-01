@@ -396,8 +396,7 @@ Permission is hereby granted, free of charge...
    
    - [Paper](https://www.aclweb.org/anthology/W14-1618/)
 
-###](https://jalammar.github.io/illustrated-word2vec/)
-
+- [The Illustrated Word2vec](https://jalammar.github.io/illustrated-word2vec/)
 - [GloVe Homepage](https://nlp.stanford.edu/projects/glove/)
 - [Gensim Documentation](https://radimrehurek.com/gensim/)
 - [Streamlit Documentation](https://docs.streamlit.io/)
