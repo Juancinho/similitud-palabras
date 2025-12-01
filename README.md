@@ -144,47 +144,7 @@ python main.py
 
 ### Pipeline de Procesamiento
 
-```
-┌─────────────────┐
-│   Entrada de    │
-│   4 Palabras    │
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│  Cargar Modelo  │
-│   GloVe 50D     │ ──► Caché (1ª vez: 5-10s, después: instantáneo)
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│ Obtener Vectores│
-│   + Contexto    │ ──► 4 palabras + 1 derivada + N contextuales
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│ Aritmética      │
-│  Vectorial      │ ──► palabra1 - palabra2 + palabra3
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│  Normalización  │
-│   L2 + Scale    │ ──► Preparación para PCA
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│  PCA (50D→3D)   │ ──► Reducción de dimensionalidad
-└────────┬────────┘
-         │
-         v
-┌─────────────────┐
-│  Visualización  │
-│   Plotly 3D     │ ──► Gráfico interactivo
-└─────────────────┘
-```
+![arquitectura](https://github.com/Juancinho/similitud-palabras/blob/main/img/arquitectura.png)
 
 ### Algoritmos Clave
 

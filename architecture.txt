@@ -1,0 +1,84 @@
+@startuml
+' ============================================================================
+' Architecture Diagram for Word Analogy Visualizer
+' Format: PlantUML
+' Description: Structural and Flow representation of app_streamlit.py
+' ============================================================================
+
+skinparam componentStyle uml2
+skinparam packageStyle rectangle
+skinparam backgroundColor #EEEBDC
+skinparam handwritten false
+
+package "External Libraries" {
+    [Streamlit] as ST
+    [Gensim Downloader] as GEN
+    [Scikit-Learn (PCA, StandardScaler)] as SKL
+    [Plotly Graph Objects] as PLY
+    [NumPy] as NP
+}
+
+package "Application Logic" {
+    
+    class "App_Streamlit" <<Main Script>> {
+        + main_execution_flow()
+        .. UI Components ..
+        + sidebar_config()
+        + input_columns()
+        + metric_display()
+    }
+
+    class "ModelManager" <<Service>> {
+        + load_model() : KeyedVectors <<cached>>
+        + get_vectors_with_context(model, words, n_context) : tuple
+    }
+
+    class "DimensionalityReducer" <<Service>> {
+        + reduce_dimensions(vectors) : np.array
+        --
+        1. L2 Normalization (NumPy)
+        2. Standardization (StandardScaler)
+        3. PCA (50D -> 3D)
+    }
+
+    class "Visualizer" <<Service>> {
+        + plot_3d_enhanced(vectors_3d, labels, types, words, ...) : Figure
+        --
+        Constructs Plotly 3D Scatter
+        Adds connectivity lines
+    }
+
+}
+
+' Dependencies and Data Flow
+ST --> "App_Streamlit" : Hosts
+GEN --> "ModelManager" : Provides GloVe Model
+NP --> "DimensionalityReducer" : Vector Math
+SKL --> "DimensionalityReducer" : PCA & Scaling
+PLY --> "Visualizer" : Rendering
+
+"App_Streamlit" --> "ModelManager" : 1. Requests Vectors
+"App_Streamlit" --> "DimensionalityReducer" : 2. Sends Vectors (50D)
+"App_Streamlit" --> "Visualizer" : 3. Sends Vectors (3D)
+
+' Detailed Flow Note
+note right of "DimensionalityReducer"
+    <b>Transformation Pipeline</b>
+    Input: 50D Vectors
+    1. v / ||v|| (L2 Norm)
+    2. (v - u) / s (StandardScaler)
+    3. PCA Project (3 Components)
+    Output: 3D Vectors
+end note
+
+note right of "App_Streamlit"
+    <b>Workflow</b>
+    1. User Inputs 4 Words
+    2. Load/Cache Model
+    3. Calculate Derived Vector (A-B+C)
+    4. Fetch Context Words
+    5. Reduce Dimensions
+    6. Plot 3D Scene
+end note
+
+@enduml
