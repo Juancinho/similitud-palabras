@@ -154,7 +154,7 @@ pca = PCA(n_components=3)
 vectors_3d = pca.fit_transform(vectors_scaled)
 ```
 
-El uso de [PCA]([Análisis de componentes principales - Wikipedia, la enciclopedia libre](https://es.wikipedia.org/wiki/An%C3%A1lisis_de_componentes_principales)) (Principal Component Analysis) es fundamental para visualizar espacios de alta dimensión. A continuación se detalla el proceso matemático aplicado en esta herramienta:
+El uso de [PCA](https://es.wikipedia.org/wiki/An%C3%A1lisis_de_componentes_principales) (Principal Component Analysis) es fundamental para visualizar espacios de alta dimensión. A continuación se detalla el proceso matemático aplicado en esta herramienta:
 
 **1. El Problema de la dimensionalidad.**
 Los vectores de GloVe existen en $\mathbb{R}^{50}$. Visualizar 50 ejes ortogonales es imposible para la percepción humana. Necesitamos proyectar estos datos a $\mathbb{R}^{3}$ minimizando la pérdida de información estructural.
