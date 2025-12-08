@@ -52,7 +52,7 @@ Una aplicación web interactiva para explorar y visualizar relaciones semántica
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/Juancinho/similitud-palabras.git
-cd word-analogy-visualizer
+cd similitud-palabras
 
 # 2. Instalar dependencias
 pip install -r requirements.txt
