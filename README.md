@@ -8,79 +8,56 @@
 ![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
 
-Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional.
+Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional. Hecho por Juan Otero, para la asignatura de Historia de las Matemáticas.
 
-[🚀 Demo en Vivo](https://juancinho-similitud-palabras-app-streamlit-io5gir.streamlit.app/) | [📖 Documentación](#características) | [🐛 Reportar Bug](https://github.com/Juancinho/similitud-palabras/issues)
+[🚀 Demo en Vivo](https://juancinho-similitud-palabras-app-streamlit-io5gir.streamlit.app/)
 
 </div>
 
 ---
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 
-- [Características](#características)
-- [Demo](#demo)
+- [Características](#características)(#demo)
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Arquitectura Técnica](#arquitectura-técnica)
 - [Cómo Funciona](#cómo-funciona)
 - [Ejemplos](#ejemplos)
-- [Contribuir](#contribuir)
 - [Licencia](#licencia)
 - [Autor](#autor)
 
 ---
 
-## ✨ Características
+## Características.
 
-### 🎯 Funcionalidades Principales
+### Funcionalidades Principales.
 
-- **Visualización 3D Interactiva**: Explora analogías de palabras en un espacio tridimensional rotable y zoomable
+- **Visualización 3D Interactiva**: Explora analogías de palabras en un espacio tridimensional rotable y zoomable.
 - **Aritmética Vectorial**: Calcula `palabra1 - palabra2 + palabra3 ≈ palabra4`
-- **Word Embeddings Pre-entrenados**: Utiliza GloVe (400,000 palabras, 50 dimensiones)
-- **Reducción de Dimensionalidad**: PCA optimizado con normalización L2 y estandarización
-- **Palabras Contextuales**: Añade automáticamente palabras relacionadas para mejor visualización
-- **Análisis de Similitud**: Calcula similitud coseno y ranking de palabras
-- **Ejemplos Predefinidos**: Rey→Reina, París→Madrid, Tío→Tía, y más
-- **Interfaz Responsive**: Funciona en desktop, tablet y móvil
+- **Word Embeddings Pre-entrenados**: Utiliza GloVe (400,000 palabras, 50 dimensiones).
+- **Reducción de Dimensionalidad**: PCA optimizado con normalización L2 y estandarización.
+- **Palabras Contextuales**: Añade automáticamente palabras relacionadas para mejor visualización.
+- **Análisis de Similitud**: Calcula similitud coseno y ranking de palabras.
 
-### 🛠️ Características Técnicas
+## Instalación.
 
-- **Caché Inteligente**: El modelo se carga solo una vez y se mantiene en memoria
-- **Feedback Visual**: Barra de progreso en tiempo real durante el procesamiento
-- **Manejo de Errores**: Validación de palabras y mensajes de error descriptivos
-- **Optimización**: Procesamiento eficiente de 400K palabras en segundos
-- **Escalable**: Arquitectura modular fácil de extender
-
-## 📦 Instalación
-
-### Requisitos Previos
+### Requisitos.
 
 - Python 3.8 o superior
 - pip (gestor de paquetes de Python)
-- 2 GB de RAM mínimo (para cargar el modelo)
-- Conexión a internet (primera carga del modelo)
 
-### Instalación Rápida
+### Instalación rápida.
 
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/Juancinho/similitud-palabras.git
 cd word-analogy-visualizer
 
-# 2. Crear entorno virtual (opcional pero recomendado)
-python -m venv venv
-
-# Activar entorno virtual
-# En Windows:
-venv\Scripts\activate
-# En Linux/Mac:
-source venv/bin/activate
-
-# 3. Instalar dependencias
+# 2. Instalar dependencias
 pip install -r requirements.txt
 
-# 4. Ejecutar la aplicación
+# 3. Ejecutar la aplicación
 streamlit run app_streamlit.py
 ```
 
@@ -98,12 +75,10 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 
 ---
 
-## 🚀 Uso
+## 🚀 Uso.
 
 ![Uso1](https://github.com/Juancinho/similitud-palabras/blob/main/img/1.png)
 ![Uso2](https://github.com/Juancinho/similitud-palabras/blob/main/img/2.png)
-
-### Uso Básico
 
 1. **Abrir la aplicación**
    
@@ -113,42 +88,31 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 
 2. **Seleccionar ejemplo o ingresar palabras personalizadas**
    
-   - Usa el selector en la sidebar para ejemplos predefinidos
-   - O ingresa 4 palabras manualmente
+   - Usa el selector en la sidebar para ejemplos predefinidos.
+   - O ingresa 4 palabras manualmente.
 
 3. **Ajustar configuración** (opcional)
    
-   - Palabras contextuales: 5-30 (recomendado: 20)
+   - Palabras contextuales: 5-30 (recomendado: 20).
 
 4. **Generar visualización**
    
-   - Click en "🚀 Generar Visualización"
-   - Espera 5-10 segundos la primera vez (carga del modelo)
+   - Click en "🚀 Generar Visualización".
+   - Espera 5-10 segundos la primera vez (carga del modelo).
 
 5. **Explorar resultados**
    
-   - Rota el gráfico 3D con el mouse
-   - Revisa métricas de similitud
-   - Analiza top 10 palabras similares
+   - Rota el gráfico 3D con el mouse.
+   - Revisa métricas de similitud.
+   - Analiza top 10 palabras similares.
 
-### Uso desde Línea de Comandos
-
-```bash
-# Versión CLI (sin interfaz web)
-python main.py
-```
-
----
-
-## 🏗️ Arquitectura Técnica
-
-### Pipeline de Procesamiento
+## Arquitectura técnica.
 
 ![arquitectura](https://github.com/Juancinho/similitud-palabras/blob/main/img/arquitectura.png)
 
-### Algoritmos Clave
+### Algoritmos clave.
 
-#### 1. Aritmética Vectorial
+#### 1. Aritmética vectorial.
 
 ```python
 # Fórmula de analogía
@@ -159,7 +123,7 @@ derivada = palabra1 - palabra2 + palabra3
 # [0.2, 0.5, ...] - [0.1, 0.3, ...] + [0.15, 0.4, ...] = [0.25, 0.6, ...]
 ```
 
-#### 2. Similitud Coseno
+#### 2. Similitud coseno.
 
 ```python
 # Mide el ángulo entre dos vectores
@@ -171,61 +135,58 @@ similitud = (A · B) / (||A|| × ||B||)
 # -1.0 = Vectores opuestos
 ```
 
-#### 3. PCA (Análisis de Componentes Principales)
+#### 3. PCA (Análisis de Componentes Principales).
 
 ```python
-# Implementación conceptual del pipeline
 from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 
-# 1. Normalizar vectores (L2) - Enfocarse en dirección, no magnitud
+# 1. Normalizar vectores 
 vectors_norm = vectors / np.linalg.norm(vectors, axis=1, keepdims=True)
 
-# 2. Centrar y Escalar (StandardScaler) - Media=0, Varianza=1
+# 2. Centrar y Escalar
 scaler = StandardScaler()
 vectors_scaled = scaler.fit_transform(vectors_norm)
 
-# 3. Aplicar PCA - Proyección a 3D
+# 3. Aplicar PCA
 pca = PCA(n_components=3)
 vectors_3d = pca.fit_transform(vectors_scaled)
 ```
 
-El uso de **PCA** (Principal Component Analysis) es fundamental para visualizar espacios de alta dimensión. A continuación se detalla el proceso matemático aplicado en esta herramienta:
+El uso de [PCA]([Análisis de componentes principales - Wikipedia, la enciclopedia libre](https://es.wikipedia.org/wiki/An%C3%A1lisis_de_componentes_principales)) (Principal Component Analysis) es fundamental para visualizar espacios de alta dimensión. A continuación se detalla el proceso matemático aplicado en esta herramienta:
 
-**1. El Problema de la Dimensionalidad**
+**1. El Problema de la dimensionalidad.**
 Los vectores de GloVe existen en $\mathbb{R}^{50}$. Visualizar 50 ejes ortogonales es imposible para la percepción humana. Necesitamos proyectar estos datos a $\mathbb{R}^{3}$ minimizando la pérdida de información estructural.
 
-**2. Preprocesamiento Crítico**
+**2. Preprocesamiento crítico.**
 
-* **Normalización L2 (Euclídea):**
+* **Normalización euclídea:**
   
-  * **¿Por qué?**: En word embeddings, la magnitud del vector a menudo correlaciona con la frecuencia de la palabra en el corpus de entrenamiento, mientras que la información semántica reside principalmente en la *dirección* del vector. Sin normalizar, palabras con magnitudes grandes dominarían la varianza explicada por el PCA, distorsionando la visualización de similitudes semánticas.
-  * **¿Cómo?**: Dividimos cada vector $v$ por su norma euclídea: $v_{norm} = \frac{v}{||v||_2}$. Esto proyecta todos los puntos sobre la superficie de una hiperesfera unitaria.
+       En word embeddings, la magnitud del vector a menudo correlaciona con la     frecuencia de la palabra en el corpus de entrenamiento, mientras que la     información semántica reside principalmente en la *dirección* del vector. Sin     normalizar, palabras con magnitudes grandes dominarían la varianza explicada     por el PCA, distorsionando la visualización de similitudes semánticas.
+  
+      Para ello, dividimos cada vector $v$ por su norma euclídea: $v_{norm} = \frac{v}{||v||_2}$. Esto     proyecta todos los puntos sobre la superficie de una hiperesfera unitaria.
 
-* **Centrado de Datos (Estandarización):**
+* **Centrado de datos (estandarización):**
   
-  * **¿Por qué?**: PCA es una técnica basada en la varianza que rota los ejes. Para que esta rotación encuentre las direcciones de máxima varianza correctamente alrededor del conjunto de datos actual (el subconjunto de palabras seleccionado), el origen del sistema de coordenadas debe coincidir con el centroide de los datos (media cero).
-  * **¿Cómo?**: Restamos la media $\mu$ de cada dimensión: $x_{centrado} = x - \mu$. Además, escalamos a varianza unitaria para que ninguna dimensión domine sobre otras artificialmente.
+  PCA es una técnica basada en la varianza que rota los ejes. Para que esta rotación encuentre las direcciones de máxima varianza correctamente alrededor del conjunto de datos actual (el subconjunto de palabras seleccionado), el origen del sistema de coordenadas debe coincidir con el centroide de los datos (media cero).
+  
+  Restamos la media $\mu$ de cada dimensión: $x_{centrado} = x - \mu$. Además, escalamos a varianza unitaria para que ninguna dimensión domine sobre otras artificialmente.
 
 **3. Reducción de Dimensionalidad**
-PCA busca una transformación ortogonal tal que los primeros ejes (Componentes Principales) retengan la mayor cantidad de "información" (varianza) posible.
-
-1. Se calcula la **Matriz de Covarianza** de los datos preprocesados.
-2. Se obtienen los **autovectores** (direcciones principales) y **autovalores** (magnitud de varianza) mediante descomposición (SVD o Eigendecomposition).
-3. Se proyectan los datos originales sobre los 3 autovectores con mayores autovalores.
+PCA busca una transformación ortogonal tal que los primeros ejes (Componentes Principales) retengan la mayor cantidad de "información" (varianza) posible. La aplicamos usando la librería de Python `sklearn`.
 
 ---
 
-## 🔬 Cómo Funciona
+## Cómo Funciona.
 
-### Word Embeddings (GloVe)
+### Word Embeddings (GloVe).
 
 Los **word embeddings** son representaciones vectoriales de palabras donde:
 
-- Cada palabra es un vector de 50 números
-- Palabras similares tienen vectores cercanos
-- Relaciones semánticas se preservan como direcciones vectoriales
+- Cada palabra es un vector de 50 números.
+- Palabras similares tienen vectores cercanos.
+- Relaciones semánticas se preservan como direcciones vectoriales.
 
 **Ejemplo:**
 
@@ -236,7 +197,7 @@ man    = [0.12, -0.08, 0.45, ..., 0.23]  (50 valores)
 woman  = [0.14, -0.06, 0.46, ..., 0.25]  (50 valores)
 ```
 
-### Analogías Vectoriales
+### Analogías vectoriales.
 
 Las analogías funcionan por **paralelismo vectorial**:
 
@@ -251,104 +212,51 @@ El vector `king - man` es paralelo a `queen - woman`, representando el concepto 
 
 ---
 
-## 📚 Ejemplos
+## Ejemplos.
 
-### 1. Género
+### 1. Género.
 
 ```python
 Input:  king, man, woman, queen
-Output: Similitud = 0.8234 ⭐
+Output: Similitud = 0.8234
 Top 1:  queen (0.8234)
 ```
 
-### 2. Geografía
+### 2. Geografía.
 
 ```python
 Input:  paris, france, spain, madrid
-Output: Similitud = 0.7456 ⭐
+Output: Similitud = 0.7456
 Top 1:  madrid (0.7456)
 ```
 
-### 3. Familia
+### 3. Familia.
 
 ```python
 Input:  uncle, man, woman, aunt
-Output: Similitud = 0.7892 ⭐
+Output: Similitud = 0.7892
 Top 1:  aunt (0.7892)
 ```
 
-### 4. Verbos Conjugados
+### 4. Verbos Conjugados.
 
 ```python
 Input:  walking, walked, swimming, swam
-Output: Similitud = 0.6543 ✓
+Output: Similitud = 0.6543
 Top 3:  swam (0.6543)
 ```
 
-### 5. Capital de País
+### 5. Capital de País.
 
 ```python
 Input:  tokyo, japan, france, paris
-Output: Similitud = 0.7123 ⭐
+Output: Similitud = 0.7123
 Top 1:  paris (0.7123)
 ```
 
-## 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! Aquí hay algunas formas de contribuir:
-
-### Reportar Bugs
-
-1. Abre un [Issue](https://github.com/Juancinho/similitud-palabras/issues)
-2. Describe el bug claramente
-3. Incluye pasos para reproducirlo
-4. Añade screenshots si es posible
-
-### Proponer Features
-
-1. Abre un [Issue](https://github.com/Juancinho/similitud-palabras/issues) con etiqueta "enhancement"
-2. Describe la funcionalidad deseada
-3. Explica por qué sería útil
-
-### Submit Pull Request
-
-1. Fork el repositorio
-2. Crea tu branch (`git checkout -b feature/AmazingFeature`)
-3. Commit cambios (`git commit -m 'Add AmazingFeature'`)
-4. Push al branch (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-### Ideas para Contribuir
-
-- [ ] Añadir más modelos de embeddings (Word2Vec, FastText, BERT)
-- [ ] Implementar t-SNE como alternativa a PCA
-
 ---
 
-## 📊 Performance
-
-| Operación         | Primera Vez | Subsecuentes        |
-| ----------------- | ----------- | ------------------- |
-| Carga de modelo   | ~8 segundos | Instantáneo (caché) |
-| Obtener vectores  | ~0.5 seg    | ~0.5 seg            |
-| PCA (5 palabras)  | ~0.1 seg    | ~0.1 seg            |
-| PCA (25 palabras) | ~0.3 seg    | ~0.3 seg            |
-| Renderizado 3D    | ~1 seg      | ~1 seg              |
-| **Total**         | **~10 seg** | **~2 seg**          |
-
----
-
-## 🔒 Privacidad y Seguridad
-
-- ✅ No se recopilan datos del usuario
-- ✅ Todo el procesamiento es local
-- ✅ Sin cookies ni tracking
-- ✅ Open source (código auditable)
-- ✅ Sin dependencias sospechosas
-
----
-
-## 📄 Licencia
+## Licencia
 
 Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para detalles.
 
@@ -369,43 +277,4 @@ Permission is hereby granted, free of charge...
 - GitHub: [@Juancinho](https://github.com/Juancinho)
 - Linkedin: [Juan Otero Rivas](https://www.linkedin.com/in/juan-otero-rivas-4568471b2/)
 
----
-
-## 🙏 Agradecimientos
-
-- **GloVe Team** - Por los word embeddings pre-entrenados
-- **Streamlit** - Por el framework web increíble
-- **Plotly** - Por las visualizaciones 3D interactivas
-- **Gensim** - Por la biblioteca de NLP
-
----
-
-## 📚 Referencias
-
-### Papers
-
-1. Mikolov et al. (2013) - "Efficient Estimation of Word Representations in Vector Space"
-   
-   - [Paper](https://arxiv.org/abs/1301.3781)
-
-2. Pennington et al. (2014) - "GloVe: Global Vectors for Word Representation"
-   
-   - [Paper](https://nlp.stanford.edu/pubs/glove.pdf)
-
-3. Levy & Goldberg (2014) - "Linguistic Regularities in Sparse and Explicit Word Representations"
-   
-   - [Paper](https://www.aclweb.org/anthology/W14-1618/)
-
-- [The Illustrated Word2vec](https://jalammar.github.io/illustrated-word2vec/)
-- [GloVe Homepage](https://nlp.stanford.edu/projects/glove/)
-- [Gensim Documentation](https://radimrehurek.com/gensim/)
-- [Streamlit Documentation](https://docs.streamlit.io/)
-- [Word Embeddings Explained](https://jalammar.github.io/illustrated-word2vec/)
-
----
-
-## ⭐ Star History
-
-Si este proyecto te fue útil, ¡deja una estrella! ⭐
-
----
+Hecho con 🎧 y mucho ☕por Juan Otero
