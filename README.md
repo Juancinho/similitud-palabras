@@ -163,9 +163,9 @@ Los vectores de GloVe existen en $\mathbb{R}^{50}$. Visualizar 50 ejes ortogonal
 
 * **Normalización euclídea:**
   
-       En word embeddings, la magnitud del vector a menudo correlaciona con la     frecuencia de la palabra en el corpus de entrenamiento, mientras que la     información semántica reside principalmente en la *dirección* del vector. Sin     normalizar, palabras con magnitudes grandes dominarían la varianza explicada     por el PCA, distorsionando la visualización de similitudes semánticas.
+  En word embeddings, la magnitud del vector a menudo correlaciona con la frecuencia de la palabra en el corpus de entrenamiento, mientras que la información semántica reside principalmente en la *dirección* del vector. Sin normalizar, palabras con magnitudes grandes dominarían la varianza explicada por el PCA, distorsionando la visualización de similitudes semánticas.
   
-      Para ello, dividimos cada vector $v$ por su norma euclídea: $v_{norm} = \frac{v}{||v||_2}$. Esto     proyecta todos los puntos sobre la superficie de una hiperesfera unitaria.
+  Para ello, dividimos cada vector $v$ por su norma euclídea: $v_{norm} = \frac{v}{||v||_2}$. Esto proyecta todos los puntos sobre la superficie de una hiperesfera unitaria.
 
 * **Centrado de datos (estandarización):**
   
