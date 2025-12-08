@@ -18,7 +18,7 @@ Una aplicación web interactiva para explorar y visualizar relaciones semántica
 
 ## Tabla de Contenidos
 
-- [Características](#características)(#demo)
+- [Características](#características)
 - [Instalación](#instalación)
 - [Uso](#uso)
 - [Arquitectura Técnica](#arquitectura-técnica)
