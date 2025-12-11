@@ -400,7 +400,7 @@ with col4:
     word4 = st.text_input("Palabra 4:", value=default_words[3], key="word4")
 
 # Botón principal para generar visualización
-generate_button = st.button("🚀 Generar Visualización", type="primary", use_container_width=True)
+generate_button = st.button("Generar Visualización", type="primary", use_container_width=True)
 
 # --- PROCESAMIENTO CUANDO SE PRESIONA EL BOTÓN ---
 if generate_button:

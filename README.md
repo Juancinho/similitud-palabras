@@ -1,4 +1,4 @@
-# 🔤 Visualizador de Analogías de Palabras
+# Visualizador de Analogías de Palabras
 
 <div align="center"
 
@@ -10,7 +10,7 @@
 
 Una aplicación web interactiva para explorar y visualizar relaciones semánticas entre palabras usando **word embeddings** (GloVe) en un espacio tridimensional. Hecho por Juan Otero, para la asignatura de Historia de las Matemáticas.
 
-[🚀 Demo en Vivo](https://juancinho-similitud-palabras-app-streamlit-io5gir.streamlit.app/)
+[Demo en Vivo](https://juancinho-similitud-palabras-app-streamlit-io5gir.streamlit.app/)
 
 </div>
 
@@ -75,7 +75,7 @@ La aplicación se abrirá automáticamente en `http://localhost:8501`
 
 ---
 
-## 🚀 Uso.
+## Uso.
 
 ![Uso1](https://github.com/Juancinho/similitud-palabras/blob/main/img/1.png)
 ![Uso2](https://github.com/Juancinho/similitud-palabras/blob/main/img/2.png)
@@ -270,11 +270,11 @@ Permission is hereby granted, free of charge...
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
 **Juan Otero**
 
 - GitHub: [@Juancinho](https://github.com/Juancinho)
 - Linkedin: [Juan Otero Rivas](https://www.linkedin.com/in/juan-otero-rivas-4568471b2/)
 
-Hecho con 🎧 y mucho ☕por Juan Otero
+Hecho con por Juan Otero
